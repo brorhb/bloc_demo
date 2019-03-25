@@ -60,12 +60,11 @@ class LoginScreen extends StatelessWidget {
   Widget loginButton (Bloc bloc) {
     return StreamBuilder(
       stream: bloc.submitValid,
-
       builder: (BuildContext context, AsyncSnapshot snapshot){
         return RaisedButton(
           child: Text('Login'),
           onPressed: !snapshot.hasData ? null : () {
-            print('Logging in');
+            bloc.submit();
           },
           color: Colors.redAccent,
         );
